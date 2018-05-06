@@ -6,13 +6,13 @@
 package Java_Assignment;
 import com.mysql.jdbc.CommunicationsException;
 import java.sql.*;
-import java.util.Properties;
 
 public class connect_to_database {
     public static void main(String[] args) throws Exception {
         // Initialise variables for connecting to the database        
         String host = "javaassignment.mysql.database.azure.com";
         String database = "SocietyDB";
+        String port = "3306";
         String user = "liammatt2605@javaassignment.mysql.database.azure.com";
         String password = "JavaDB2605";
         
@@ -37,24 +37,13 @@ public class connect_to_database {
         Connection conn = null;
         //execute a try catch block to catch the event that the database is inaccessible
         try {
-            String url = String.format("jdbc:mysql://%s:3306/%s?useSSL=false&requireSSL=false", host, database); 
-                      
-            System.out.println("Done");
-            //Set connection properties
-            Properties p = new Properties();
-            p.setProperty("user", user);
-            p.setProperty("password", password);
-            p.setProperty("useSSL", "false");
-            p.setProperty("verifyServerCertificate", "false");
-            p.setProperty("requireSSL", "false");
-           // conn = DriverManager.getConnection(url, user, password);
+            String url = String.format("jdbc:mysql://%s:%s/%s?useSSL=false&requireSSL=false", host, port, database); 
            conn = DriverManager.getConnection(url, user, password);
         }
-        
-
         catch (CommunicationsException e) {
             throw new SQLException("Could not connect to the database", e);
         }
+        
         if (conn != null) {
             System.out.println("Successfully connected to the database!");
         }
