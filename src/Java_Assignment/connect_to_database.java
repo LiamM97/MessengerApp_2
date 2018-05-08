@@ -22,7 +22,7 @@ public class connect_to_database {
         in the left pane, locate your project, right click libraries, add lirary 
         and select the 'mySQL JDBC Driver' library       
         */         
-        try {
+        try { 
             Class.forName("com.mysql.jdbc.Driver");
         }
         catch (ClassNotFoundException e) {
