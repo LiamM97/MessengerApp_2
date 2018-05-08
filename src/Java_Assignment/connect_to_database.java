@@ -7,7 +7,7 @@ package Java_Assignment;
 import com.mysql.jdbc.CommunicationsException;
 import java.sql.*;
 
-public class connect_to_database {
+public class connect_to_database { 
     public static void main(String[] args) throws Exception {
         // Initialise variables for connecting to the database        
         String host = "javaassignment.mysql.database.azure.com";
